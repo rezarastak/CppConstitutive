@@ -5,7 +5,8 @@ namespace constitutive {
  * Parameters used to describe the basic elastisicy of materials.
  * It stores the Lam{\'e} constants.
  */
-template <typename Param = double> struct ElasticParams {
+template <typename Param = double>
+struct ElasticParams {
   /**
    * The Lam{\'e} stiffness constant $\lambda$.
    */

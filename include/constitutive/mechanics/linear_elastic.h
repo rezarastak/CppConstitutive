@@ -6,7 +6,8 @@ namespace constitutive {
 /**
  * Linear Elastic material.
  */
-template <typename number> struct LinearElastic {
+template <typename number>
+struct LinearElastic {
   /**
    * Elastic parameters describing the material.
    */
@@ -19,7 +20,8 @@ template <typename number> struct LinearElastic {
     /**
      * Material state for small strain mechanical simulation.
      */
-    template <int dim> struct SmallStrain {
+    template <int dim>
+    struct SmallStrain {
       /**
        * The strain tensor assuming small strains and rotations
        * $\BoldSymbol{\varepsilon$}$.
