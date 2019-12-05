@@ -1,10 +1,17 @@
 #pragma once
 
+#include <constitutive/mechanics/elastic.h>
+
 namespace constitutive {
 /**
  * Linear Elastic material.
  */
 template <typename number> struct LinearElastic {
+  /**
+   * Elastic parameters describing the material.
+   */
+  ElasticParams elastic;
+
   /**
    * Material states that should be stored and at each material point.
    */
@@ -17,17 +24,16 @@ template <typename number> struct LinearElastic {
        * The strain tensor assuming small strains and rotations
        * $\BoldSymbol{\varepsilon$}$.
        */
-      Tensor<2, dim> strain;
+      SymmetricTensor<2, dim> strain;
       /**
        * The stress tensor $\BoldSymbol{\sigma}$.
        */
-      Tensor<2, dim> stress;
+      SymmetricTensor<2, dim> stress;
     };
   };
 
-  /**
-   * Elastic parameters describing the material.
-   */
-  ElasticParams elastic;
+  template <int dim>
+  void small_strain_alldim(const State::SmallStrain<dim> &previous,
+                           State::SmallStrain<dim> &next) const;
 };
 } // namespace constitutive
