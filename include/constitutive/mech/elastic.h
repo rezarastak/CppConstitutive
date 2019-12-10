@@ -5,18 +5,9 @@ namespace constitutive {
  * Parameters used to describe the basic elastisicy of materials.
  * It stores the Lam{\'e} constants.
  */
-template <typename Param = double>
+template <typename Param>
 struct LambdaMu {
-  /**
-   * The Lam{\'e} stiffness constant $\lambda$.
-   */
-  Param lambda;
-
-  /**
-   * The Lam{\'e} shear constant $\mu$.
-   */
-  Param mu;
-
+public:
   /**
    * Constructor. Lambda and mu must be positive values.
    */
@@ -30,23 +21,35 @@ struct LambdaMu {
    * Converting Constructor.
    */
   constexpr explicit LambdaMu(YoungPoisson params) noexcept;
+
+  /**
+   * Const lambda accessor.
+   */
+  constexpr Param get_lambda() const { return lambda; }
+
+  /**
+   * Const mu accessor.
+   */
+  constexpr Param get_mu() const { return mu; }
+
+private:
+  /**
+   * The Lam{\'e} stiffness constant $\lambda$.
+   */
+  Param lambda;
+
+  /**
+   * The Lam{\'e} shear constant $\mu$.
+   */
+  Param mu;
 };
 
 /**
  * Stores the Young's modulus and Poissons ratio for an elastic materials.
  */
-template <typename Param = double>
+template <typename Param>
 struct YoungPoisson {
-  /**
-   * The Young's modulus.
-   */
-  Param E;
-
-  /**
-   * The Poisson's ratio $\nu$.
-   */
-  Param nu;
-
+public:
   /**
    * Constructor.
    */
@@ -65,6 +68,27 @@ struct YoungPoisson {
     E = params.mu * (temp + 2.); // = mu * (3 lambda + 2 mu) / (lambda + mu)
     nu = 0.5 * temp;             // = lambda / (2(lambda + mu))
   }
+
+  /**
+   * Const accessor for E.
+   */
+  constexpr Param get_E() const noexcept { return E; }
+
+  /**
+   * Const accessor for nu.
+   */
+  constexpr Param get_nu() const noexcept { return nu; }
+
+private:
+  /**
+   * The Young's modulus.
+   */
+  Param E;
+
+  /**
+   * The Poisson's ratio $\nu$.
+   */
+  Param nu;
 };
 
 /*---------------------- inline functions ----------------------------*/
