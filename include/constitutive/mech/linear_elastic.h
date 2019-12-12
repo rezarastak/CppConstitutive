@@ -1,6 +1,7 @@
 #pragma once
 
-#include <constitutive/mech/elastic.h>
+#include "constitutive/mech/elastic.h"
+#include <deal.II/base/symmetric_tensor.h>
 
 namespace constitutive {
 /**
@@ -25,21 +26,18 @@ struct LinearElastic {
      * The strain tensor assuming small strains and rotations
      * $\BoldSymbol{\varepsilon$}$.
      */
-    typename Config::Strain<dim> strain;
+    typename Config::template Strain<dim> strain;
     /**
      * The stress tensor $\BoldSymbol{\sigma}$.
      */
-    typename Config::CauchyStress<dim> stress;
+    typename Config::template CauchyStress<dim> stress;
   };
 
   template <int dim>
-  void small_strain_alldim(const SmallStrainState<dim> & /*previous*/,
-                           SmallStrainState<dim> &current,
-                           constraints::MechAllDim constraints) const {
-    Assert(constraints == constraints::MechAllDim::FixedStrain,
-           ExcNotImplemented());
-    using Scalar = typename Config::StateScalar;
-    const auto I = unit_symmetric_tensor<dim, Scalar>();
+  void small_strain_update(const SmallStrainState<dim> & /*previous*/,
+                           SmallStrainState<dim> &current) const {
+    using Scalar = typename decltype(current.stress)::value_type;
+    const auto I = dealii::unit_symmetric_tensor<dim, Scalar>();
     current.stress = elastic.lambda * trace(current.strain) * I +
                      Scalar{2} * elastic.mu * current.strain;
   }
