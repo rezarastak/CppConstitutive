@@ -31,12 +31,16 @@ public:
   /**
    * Const lambda accessor.
    */
-  constexpr Param get_lambda() const noexcept { return lambda; }
+  constexpr Param get_lambda() const noexcept {
+    return lambda;
+  }
 
   /**
    * Const mu accessor.
    */
-  constexpr Param get_mu() const noexcept { return mu; }
+  constexpr Param get_mu() const noexcept {
+    return mu;
+  }
 
 private:
   /**
@@ -77,12 +81,16 @@ public:
   /**
    * Const accessor for E.
    */
-  constexpr Param get_E() const noexcept { return E; }
+  constexpr Param get_E() const noexcept {
+    return E;
+  }
 
   /**
    * Const accessor for nu.
    */
-  constexpr Param get_nu() const noexcept { return nu; }
+  constexpr Param get_nu() const noexcept {
+    return nu;
+  }
 
 private:
   /**
