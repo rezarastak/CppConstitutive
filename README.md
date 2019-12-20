@@ -1,6 +1,8 @@
 # CppConstitutive
 A collection of high-performance material constitutive models used in computational mechanics.
 
+[![Build Status](https://travis-ci.com/rezarastak/CppConstitutive.svg?branch=master)](https://travis-ci.com/rezarastak/CppConstitutive)
+
 ## Goals of the project
 * A Large number of existing material models are available.
 * For each material model, the corresponding article introducing the model is available. Ideally,
@@ -33,5 +35,5 @@ make run
 to run the example.
 
 ## Open source code contributions
-Thank you for considering to contribute to this project. Please read the file CONTRIBUTING.md
+Thank you for considering to contribute to this project. Please read the file [CONTRIBUTING.md](CONTRIBUTING.md)
 
