@@ -1,8 +1,13 @@
+language: cpp
 sudo: false
-image: dealii/dealii:v9.0.0-gcc-mpi-fulldepscandi-debugrelease
+services:
+  - docker
 script:
-  - mkdir -p build
-  - cd build
-  - cmake ..
-  - make tests
-  - test/tests
+  - docker run -t -v `pwd`:/home/dealii/cpp-constitutive:rw dealii/dealii:v9.0.0-gcc-mpi-fulldepscandi-debugrelease /bin/sh -c "\
+    cd cpp-constitutive;\
+    mkdir -p build;\
+    cd build;\
+    cmake ..;\
+    make tests;\
+    test/tests"
+
