@@ -2,11 +2,11 @@ language: cpp
 sudo: true
 services:
   - docker
+before_install:
+  - test -d build || mkdir build; sudo chown -R 1000:1000 build
 script:
   - docker run -t -v `pwd`:/home/dealii/cpp-constitutive:rw dealii/dealii:v9.0.0-gcc-mpi-fulldepscandi-debugrelease /bin/sh -c '
-    cd cpp-constitutive;
-    mkdir -p build;
-    cd build;
+    cd cpp-constitutive/build;
     cmake ..;
     make tests;
     test/tests'
