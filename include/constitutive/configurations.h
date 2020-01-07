@@ -9,10 +9,20 @@ namespace configs {
    */
   struct DealII {
     /**
+     * Scalar type used for strains.
+     */
+    using StrainScalar = double;
+
+    /**
      * The type used for small strain tensor.
      */
     template <int dim>
     using Strain = dealii::SymmetricTensor<2, dim>;
+
+    /**
+     * Scalar types used for stresses.
+     */
+    using StressScalar = double;
 
     /**
      * The types used for Couchy stress tensor.

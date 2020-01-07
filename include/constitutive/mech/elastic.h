@@ -100,9 +100,11 @@ public:
    * Converting constructor.
    */
   constexpr explicit YoungPoisson(LambdaMu<Param> params) noexcept {
-    const auto temp = params.lambda / (params.lambda + params.mu);
-    E = params.mu * (temp + 2.); // = mu * (3 lambda + 2 mu) / (lambda + mu)
-    nu = 0.5 * temp;             // = lambda / (2(lambda + mu))
+    const auto lambda = params.get_lambda();
+    const auto mu = params.get_mu();
+    const auto temp = lambda / (lambda + mu);
+    E = mu * (temp + 2.); // = mu * (3 lambda + 2 mu) / (lambda + mu)
+    nu = 0.5 * temp;      // = lambda / (2(lambda + mu))
   }
 
   /**
@@ -160,9 +162,9 @@ YoungPoisson(LambdaMu<Param>)->YoungPoisson<Param>;
 /*---------------------- inline functions ----------------------------*/
 template <typename Param>
 constexpr LambdaMu<Param>::LambdaMu(YoungPoisson<Param> params) noexcept {
-  const auto temp = params.E / (1. + params.nu);
+  const auto temp = params.get_E() / (1. + params.get_nu());
   // lambda = E nu / ((1 + nu)(1 - 2 nu))
-  lambda = temp * params.nu / (1. - 2. * params.nu);
+  lambda = temp * params.get_nu() / (1. - 2. * params.get_nu());
   // mu = E / (2(1 + nu))
   mu = 0.5 * temp;
 }

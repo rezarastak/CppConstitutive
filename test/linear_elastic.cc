@@ -12,8 +12,8 @@ TEST_CASE("linear elastic", "[mech]") {
   MatType material{elastic_param};
   SECTION("dim  = 1") {
     MatType::SmallStrainState<1> state{};
-    state.strain = decltype(state.strain){{{0.1}}};
+    state.strain[0][0] = 0.1;
     material.small_strain_update({}, state);
-    REQUIRE(state.stress[0][0] = 15.);
+    REQUIRE(state.stress[0][0] == 22.);
   }
 }

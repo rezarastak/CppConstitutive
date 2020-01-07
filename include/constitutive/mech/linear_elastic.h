@@ -36,10 +36,10 @@ struct LinearElastic {
   template <int dim>
   void small_strain_update(const SmallStrainState<dim> & /*previous*/,
                            SmallStrainState<dim> &current) const {
-    using Scalar = typename decltype(current.stress)::value_type;
+    using Scalar = typename Config::StressScalar;
     const auto I = dealii::unit_symmetric_tensor<dim, Scalar>();
-    current.stress = elastic.lambda * trace(current.strain) * I +
-                     Scalar{2} * elastic.mu * current.strain;
+    current.stress = elastic.get_lambda() * trace(current.strain) * I +
+                     Scalar{2} * elastic.get_mu() * current.strain;
   }
 };
 } // namespace constitutive
