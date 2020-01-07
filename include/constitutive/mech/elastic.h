@@ -70,6 +70,18 @@ private:
 };
 
 /**
+ * Deduction guide for constructor.
+ */
+template <typename Param>
+LambdaMu(Param, Param)->LambdaMu<Param>;
+
+/**
+ * Deduction guide for converting constructor.
+ */
+template <typename Param>
+LambdaMu(YoungPoisson<Param>)->LambdaMu<Param>;
+
+/**
  * Stores the Young's modulus and Poissons ratio for an elastic materials.
  */
 template <typename Param>
@@ -132,6 +144,18 @@ private:
    */
   Param nu;
 };
+
+/**
+ * Deduction guide for constructor.
+ */
+template <typename Param>
+YoungPoisson(Param, Param)->YoungPoisson<Param>;
+
+/**
+ * Deduction guide for converting constructor.
+ */
+template <typename Param>
+YoungPoisson(LambdaMu<Param>)->YoungPoisson<Param>;
 
 /*---------------------- inline functions ----------------------------*/
 template <typename Param>
