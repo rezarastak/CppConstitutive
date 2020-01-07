@@ -46,15 +46,15 @@ public:
    * Compute the value of E from lambda and mu.
    */
   constexpr Param get_E() const noexcept {
-    const auto temp = params.lambda / (params.lambda + params.mu);
-    return params.mu * (temp + 2.); // = mu * (3 lambda + 2 mu) / (lambda + mu)
+    const auto temp = lambda / (lambda + mu);
+    return mu * (temp + 2.); // = mu * (3 lambda + 2 mu) / (lambda + mu)
   }
 
   /**
    * Compute the value of nu from lambda and mu.
    */
   constexpr Param get_nu() const noexcept {
-    return 0.5 * params.lambda / (params.lambda + params.mu);
+    return 0.5 * lambda / (lambda + mu);
   }
 
 private:
