@@ -1,14 +1,13 @@
 language: cpp
 sudo: true
 env:
-  - IMAGE=dealii/dealii:v9.1.1-clang-serial-bare-debugrelease
-  - IMAGE=dealii/dealii:v9.1.1-gcc-mpi-fulldepsspack-debugrelease
+  - IMAGE=austermuehl/dealii-master-image
 services:
   - docker
 before_install:
   - test -d build || mkdir build; sudo chown -R 1000:1000 build
 script:
-  - docker run -t -v `pwd`:/home/dealii/cpp-constitutive:rw $IMAGE /bin/sh -c '
+  - docker run -t -v `pwd`:/home/user/cpp-constitutive:rw $IMAGE /bin/sh -c '
     cd cpp-constitutive/build;
     cmake ..;
     make tests;
