@@ -42,6 +42,21 @@ public:
     return mu;
   }
 
+  /**
+   * Compute the value of E from lambda and mu.
+   */
+  constexpr Param get_E() const noexcept {
+    const auto temp = params.lambda / (params.lambda + params.mu);
+    return params.mu * (temp + 2.); // = mu * (3 lambda + 2 mu) / (lambda + mu)
+  }
+
+  /**
+   * Compute the value of nu from lambda and mu.
+   */
+  constexpr Param get_nu() const noexcept {
+    return 0.5 * params.lambda / (params.lambda + params.mu);
+  }
+
 private:
   /**
    * The Lam{\'e} stiffness constant $\lambda$.
@@ -92,6 +107,20 @@ public:
     return nu;
   }
 
+  /**
+   * Compute lambda from E and nu.
+   */
+  constexpr Param get_lambda() const noexcept {
+    return E * nu / (1. - 2. * nu) / (1. + nu);
+  }
+
+  /**
+   * Compute mu from E and nu.
+   */
+  constexpr Param get_mu() const noexcept {
+    return 0.5 * E / (1. + nu);
+  }
+
 private:
   /**
    * The Young's modulus.
@@ -108,7 +137,9 @@ private:
 template <typename Param>
 constexpr LambdaMu<Param>::LambdaMu(YoungPoisson<Param> params) noexcept {
   const auto temp = params.E / (1. + params.nu);
+  // lambda = E nu / ((1 + nu)(1 - 2 nu))
   lambda = temp * params.nu / (1. - 2. * params.nu);
+  // mu = E / (2(1 + nu))
   mu = 0.5 * temp;
 }
 } // namespace constitutive
