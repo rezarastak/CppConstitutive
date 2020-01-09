@@ -1,6 +1,6 @@
 DEAL_II_INITIALIZE_CACHED_VARIABLES()
 include_directories("${CMAKE_SOURCE_DIR}/include")
 include_directories("${CMAKE_SOURCE_DIR}/external/include")
-FILE(GLOB_RECURSE TARGET_SRC  "*.cc")
+FILE(GLOB TARGET_SRC  "*.cc")
 ADD_EXECUTABLE(tests ${TARGET_SRC})
 DEAL_II_SETUP_TARGET(tests)
