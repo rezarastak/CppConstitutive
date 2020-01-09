@@ -1,11 +1,10 @@
 language: cpp
-sudo: true
 env:
   - IMAGE=rrastak/dealii:ubuntu-package
 services:
   - docker
 before_install:
-  - test -d build || mkdir build; sudo chown -R 1000:1000 build
+  - test -d build || mkdir build
 script:
   - docker run -t -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c '
     cd cpp-constitutive/build;
