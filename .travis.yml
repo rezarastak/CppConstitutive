@@ -2,6 +2,7 @@ language: cpp
 env:
   - IMAGE=rrastak/dealii:ubuntu-package
   - IMAGE=rrastak/dealii:master-bare-gcc
+  - IMAGE=rrastak/dealii:master-bare-clang
 services:
   - docker
 before_install:
