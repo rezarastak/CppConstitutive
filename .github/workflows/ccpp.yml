@@ -1,0 +1,19 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  surface-mesh:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: create build/
+      run: test -d build || mkdir build
+    - name: docker
+      run: docker run -t -v `pwd`:/cpp-constitutive rrastak/dealii:ubuntu-package /bin/sh -c '
+           cd /cpp-constitutive/build;
+           cmake ..;
+           make tests;
+           test/tests;'
