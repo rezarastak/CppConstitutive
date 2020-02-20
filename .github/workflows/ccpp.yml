@@ -3,16 +3,19 @@ name: C/C++ CI
 on: [push]
 
 jobs:
-  surface-mesh:
+  build-and-test:
 
     runs-on: ubuntu-latest
+    strategy:
+        matrix:
+            image: [rrastak/dealii:ubuntu-package, rrastak/dealii:master-bare-gcc, rrastak/dealii:master-bare-clang]
 
     steps:
     - uses: actions/checkout@v2
     - name: create build/
       run: test -d build || mkdir build
     - name: docker
-      run: docker run -t -v `pwd`:/cpp-constitutive rrastak/dealii:ubuntu-package /bin/sh -c '
+      run: docker run -t -v `pwd`:/cpp-constitutive ${{ matrix.image }} /bin/sh -c '
            cd /cpp-constitutive/build;
            cmake ..;
            make tests;
