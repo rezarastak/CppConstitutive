@@ -1,16 +1,18 @@
 language: cpp
 env:
-  - IMAGE=rrastak/dealii:ubuntu-package
-  - IMAGE=rrastak/dealii:master-bare-gcc
-  - IMAGE=rrastak/dealii:master-bare-clang
+  - IMAGE=rrastak/dealii:ubuntu-package BUILD=Debug
+  - IMAGE=rrastak/dealii:master-bare-gcc BUILD=Debug
+  - IMAGE=rrastak/dealii:master-bare-gcc BUILD=Release
+  - IMAGE=rrastak/dealii:master-bare-clang BUILD=Debug
+  - IMAGE=rrastak/dealii:master-bare-clang BUILD=Release
 services:
   - docker
 before_install:
   - test -d build || mkdir build
 script:
-  - docker run -t -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c '
+  - docker run -t -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
     cd cpp-constitutive/build;
-    cmake ..;
+    cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' ..;
     make tests;
-    test/tests'
+    test/tests"
 
