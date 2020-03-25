@@ -16,8 +16,8 @@ jobs:
     - name: create build/
       run: test -d build || mkdir build
     - name: docker
-      run: docker run -t -v `pwd`:/cpp-constitutive ${{ matrix.image }} /bin/sh -c '
-           cd /cpp-constitutive/build;
-           cmake -DCMAKE_BUILD_TYPE=${{ matrix.build }} -DDEAL_II_CXX_FLAGS="-Werror" ..;
-           make tests;
-           test/tests;'
+      run: docker run -t -v `pwd`:/cpp-constitutive ${{ matrix.image }} /bin/sh -c "
+           cd /cpp-constitutive/build &&
+           cmake -DCMAKE_BUILD_TYPE=${{ matrix.build }} -DDEAL_II_CXX_FLAGS='-Werror' .. &&
+           make tests &&
+           test/tests;"

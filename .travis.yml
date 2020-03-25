@@ -11,8 +11,8 @@ before_install:
   - test -d build || mkdir build
 script:
   - docker run -t -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
-    cd cpp-constitutive/build;
-    cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' ..;
-    make tests;
+    cd cpp-constitutive/build &&
+    cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' .. &&
+    make tests &&
     test/tests"
 
