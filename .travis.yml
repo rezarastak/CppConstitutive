@@ -10,7 +10,7 @@ services:
 before_install:
   - test -d build || mkdir build
 script:
-  - docker run --rm -t -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
+  - docker run --rm -t -u root -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
     cd cpp-constitutive/build &&
     cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' .. &&
     make tests &&
