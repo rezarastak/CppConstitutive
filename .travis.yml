@@ -7,12 +7,10 @@ env:
   - IMAGE=rrastak/dealii:master-bare-clang BUILD=Release
 services:
   - docker
-before_install:
-  - test -d build || mkdir build
 script:
-  - docker run --rm -t -u root -v `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
-    cd cpp-constitutive/build &&
-    cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' .. &&
+  - docker run --rm --tty --volume `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
+    cd /cpp-constitutive &&
+    cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' . &&
     make tests &&
     test/tests"
 
