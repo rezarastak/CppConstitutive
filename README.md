@@ -2,7 +2,7 @@
 A collection of high-performance material constitutive models used in computational mechanics.
 
 [![Build Status](https://travis-ci.com/rezarastak/CppConstitutive.svg?branch=master)](https://travis-ci.com/rezarastak/CppConstitutive)
-![C/C++ CI](https://github.com/rezarastak/CppConstitutive/workflows/C/C++%20CI/badge.svg)
+![C++ CI](https://github.com/rezarastak/CppConstitutive/workflows/C++%20CI/badge.svg)
 [![Release](https://img.shields.io/github/v/release/rezarastak/CppConstitutive)](https://github.com/rezarastak/CppConstitutive/releases)
 [![DOI](https://zenodo.org/badge/225561737.svg)](https://zenodo.org/badge/latestdoi/225561737)
 
