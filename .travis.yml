@@ -10,7 +10,6 @@ services:
 script:
   - docker run --rm --tty --volume `pwd`:/cpp-constitutive $IMAGE /bin/sh -c "
     cd /cpp-constitutive &&
-    cmake -DCMAKE_BUILD_TYPE=$BUILD -DDEAL_II_CXX_FLAGS='-Werror' . &&
-    make tests &&
-    test/tests"
+    cmake -D CMAKE_BUILD_TYPE=$BUILD -D CMAKE_CXX_FLAGS='-Werror' . &&
+    make VERBOSE=ON -j 4 tests"
 
