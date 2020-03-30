@@ -17,6 +17,4 @@ jobs:
     - name: Build
       run: |
           cmake -D CMAKE_BUILD_TYPE=${{ matrix.build }} -D CMAKE_CXX_FLAGS='-Werror' .
-          make VERBOSE=ON tests
-    - name: Test
-      run: test/tests
+          make VERBOSE=ON -j 4 tests
