@@ -13,5 +13,7 @@ jobs:
       run: sudo apt-get install doxygen graphviz
     - name: Generate docs
       run: |
-          cmake .
+          mkdir -p build
+          cd build
+          cmake ..
           make doc
