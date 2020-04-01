@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install utilities
-      run: sudo apt-get install doxygen
+      run: sudo apt-get install doxygen graphviz
     - name: Generate docs
       run: |
           cmake .
