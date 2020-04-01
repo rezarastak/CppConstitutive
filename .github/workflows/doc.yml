@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install utilities
-      run: sudo apt-get install doxygen dot
+      run: sudo apt-get install doxygen
     - name: Generate docs
       run: |
           cmake .
