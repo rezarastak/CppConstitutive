@@ -1,0 +1,17 @@
+name: Documentation
+
+on: [push]
+
+jobs:
+  Documentation:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install utilities
+      run: sudo apt-get install doxygen dot
+    - name: Generate docs
+      run: |
+          cmake .
+          make doc
