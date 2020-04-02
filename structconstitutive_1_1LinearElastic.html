@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,9 +96,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7604ff24a14e17bf87cd63bb813e2ba1"><td class="memTemplParams" colspan="2"><a id="a7604ff24a14e17bf87cd63bb813e2ba1"></a>
-template&lt;int dim&gt; </td></tr>
-<tr class="memitem:a7604ff24a14e17bf87cd63bb813e2ba1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>small_strain_update</b> (const <a class="el" href="structconstitutive_1_1LinearElastic_1_1SmallStrainState.html">SmallStrainState</a>&lt; dim &gt; &amp;, <a class="el" href="structconstitutive_1_1LinearElastic_1_1SmallStrainState.html">SmallStrainState</a>&lt; dim &gt; &amp;current) const</td></tr>
+<tr class="memitem:a7604ff24a14e17bf87cd63bb813e2ba1"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:a7604ff24a14e17bf87cd63bb813e2ba1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structconstitutive_1_1LinearElastic.html#a7604ff24a14e17bf87cd63bb813e2ba1">small_strain_update</a> (const <a class="el" href="structconstitutive_1_1LinearElastic_1_1SmallStrainState.html">SmallStrainState</a>&lt; dim &gt; &amp;, <a class="el" href="structconstitutive_1_1LinearElastic_1_1SmallStrainState.html">SmallStrainState</a>&lt; dim &gt; &amp;current) const</td></tr>
 <tr class="separator:a7604ff24a14e17bf87cd63bb813e2ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -110,7 +115,49 @@ struct constitutive::LinearElastic&lt; Config &gt;</h3>
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7604ff24a14e17bf87cd63bb813e2ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7604ff24a14e17bf87cd63bb813e2ba1">&#9670;&nbsp;</a></span>small_strain_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Config &gt; </div>
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structconstitutive_1_1LinearElastic.html">constitutive::LinearElastic</a>&lt; Config &gt;::small_strain_update </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structconstitutive_1_1LinearElastic_1_1SmallStrainState.html">SmallStrainState</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structconstitutive_1_1LinearElastic_1_1SmallStrainState.html">SmallStrainState</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>current</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Compute the stress values from current state of strain. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="a08957052a160a94433f04c33024ad8bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08957052a160a94433f04c33024ad8bb">&#9670;&nbsp;</a></span>elastic</h2>
 

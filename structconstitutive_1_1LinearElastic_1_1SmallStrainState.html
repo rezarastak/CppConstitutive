@@ -12,6 +12,12 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -102,7 +108,7 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The strain tensor assuming small strains and rotations ${$}$. </p>
+<p>The strain tensor assuming small strains and rotations \(\boldsymbol{\varepsilon}\). </p>
 
 </div>
 </div>
@@ -121,7 +127,7 @@ template&lt;int dim&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The stress tensor ${}$. </p>
+<p>The stress tensor \(\boldsymbol{\sigma}\). </p>
 
 </div>
 </div>

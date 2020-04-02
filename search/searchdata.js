@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "cdeglopsy",
   1: "dlsy",
-  2: "gly",
+  2: "glsy",
   3: "es",
   4: "cps",
   5: "o"
