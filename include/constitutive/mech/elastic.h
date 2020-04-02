@@ -16,7 +16,7 @@ template <typename Param>
 class LambdaMu {
 public:
   /**
-   * Constructor. Lambda and mu must be positive values.
+   * Constructor. @p lambda and @p mu must be positive values.
    */
   constexpr LambdaMu(Param lambda, Param mu) noexcept : lambda{lambda}, mu{mu} {
     Assert(lambda > 0., ExcParamOutOfRange());
@@ -59,12 +59,12 @@ public:
 
 private:
   /**
-   * The Lam{\'e} stiffness constant $\lambda$.
+   * The Lam{\'e} stiffness constant \f$\lambda\f$.
    */
   Param lambda;
 
   /**
-   * The Lam{\'e} shear constant $\mu$.
+   * The Lam{\'e} shear constant \f$\mu\f$.
    */
   Param mu;
 };
@@ -142,7 +142,7 @@ private:
   Param E;
 
   /**
-   * The Poisson's ratio $\nu$.
+   * The Poisson's ratio \f$\nu\f$.
    */
   Param nu;
 };

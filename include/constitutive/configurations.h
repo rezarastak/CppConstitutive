@@ -5,7 +5,7 @@
 namespace constitutive {
 namespace configs {
   /**
-   * Provides default types based on DealII types.
+   * Provides default types based on deal.II types.
    */
   struct DealII {
     /**
