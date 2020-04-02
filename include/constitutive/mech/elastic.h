@@ -10,7 +10,7 @@ class YoungPoisson;
 
 /**
  * Parameters used to describe the basic elastisicy of materials.
- * It stores the Lam{\'e} constants.
+ * It stores the Lam&eacute; constants.
  */
 template <typename Param>
 class LambdaMu {
@@ -59,12 +59,12 @@ public:
 
 private:
   /**
-   * The Lam{\'e} stiffness constant \f$\lambda\f$.
+   * The Lam&eacute; stiffness constant \f$\lambda\f$.
    */
   Param lambda;
 
   /**
-   * The Lam{\'e} shear constant \f$\mu\f$.
+   * The Lam&eacute; shear constant \f$\mu\f$.
    */
   Param mu;
 };
