@@ -8,6 +8,7 @@ IF(DOXYGEN_FOUND)
     set(DOXYGEN_HIDE_IN_BODY_DOCS "YES")
     set(DOXYGEN_USE_MATHJAX "YES")
     set(DOXYGEN_MATHJAX_RELPATH "https://cdn.mathjax.org/mathjax/latest")
+    set(DOXYGEN_EXTRACT_PRIVATE "YES")
     DOXYGEN_ADD_DOCS(doc
         ${CMAKE_CURRENT_SOURCE_DIR}/../
         COMMENT "Generating documentation using Doxygen")
