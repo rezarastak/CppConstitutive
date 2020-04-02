@@ -14,7 +14,6 @@ the target `tests`.
 cd build
 cmake ..
 make tests
-test/tests
 ```
 
 ## Reporting a bug
