@@ -24,15 +24,18 @@ struct LinearElastic {
   struct SmallStrainState {
     /**
      * The strain tensor assuming small strains and rotations
-     * $\BoldSymbol{\varepsilon$}$.
+     * \f$\boldsymbol{\varepsilon}\f$.
      */
     typename Config::template Strain<dim> strain;
     /**
-     * The stress tensor $\BoldSymbol{\sigma}$.
+     * The stress tensor \f$\boldsymbol{\sigma}\f$.
      */
     typename Config::template CauchyStress<dim> stress;
   };
 
+  /**
+   * Compute the stress values from current state of strain.
+   */
   template <int dim>
   void small_strain_update(const SmallStrainState<dim> & /*previous*/,
                            SmallStrainState<dim> &current) const {
