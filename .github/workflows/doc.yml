@@ -16,8 +16,11 @@ jobs:
           mkdir -p build
           cd build
           cmake ..
-          make doc
+          make doc | tee doxygen.log
+          # check for warnings in the log file and raise error if there is a warning
+          ! grep 'warning\|error' -q doxygen.log
     - name: Publish to Github pages
+      if: success()
       uses: peaceiris/actions-gh-pages@v3
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
