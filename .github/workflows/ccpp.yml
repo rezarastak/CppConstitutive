@@ -10,7 +10,7 @@ jobs:
         matrix:
             image: ["rrastak/dealii:ubuntu-package", "rrastak/dealii:gcc", "rrastak/dealii:clang"]
             build: ["Debug", "Release"]
-            standard: ["17", "20"]
+            standard: ["17", "23"]
     container: ${{ matrix.image }}
 
     steps:
