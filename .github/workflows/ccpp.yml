@@ -14,7 +14,7 @@ jobs:
     container: ${{ matrix.image }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build
       run: |
           cmake -D CMAKE_BUILD_TYPE=${{ matrix.build }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} \
