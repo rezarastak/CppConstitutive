@@ -9,7 +9,7 @@ IF(deal.II_FOUND)
     include_directories("${CMAKE_SOURCE_DIR}/include")
     FILE(GLOB TARGET_SRC  "*.cc")
     ADD_EXECUTABLE(catch2_tests ${TARGET_SRC})
-    SET_PROPERTY(TARGET catch2_tests PROPERTY CXX_STANDARD 17)
+    target_compile_features(catch2_tests PUBLIC cxx_std_17)
     DEAL_II_SETUP_TARGET(catch2_tests)
     ADD_CUSTOM_TARGET(tests
         COMMAND ./catch2_tests
