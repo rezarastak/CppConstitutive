@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8.12)
 PROJECT(CppConstitutive
     DESCRIPTION "A collection of high-performance material constitutive models used in computational mechanics"
     LANGUAGES CXX)
