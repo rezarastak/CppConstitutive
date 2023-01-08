@@ -10,11 +10,13 @@ jobs:
         matrix:
             image: ["rrastak/dealii:ubuntu-package", "rrastak/dealii:gcc", "rrastak/dealii:clang"]
             build: ["Debug", "Release"]
+            standard: ["17", "20"]
     container: ${{ matrix.image }}
 
     steps:
     - uses: actions/checkout@v2
     - name: Build
       run: |
-          cmake -D CMAKE_BUILD_TYPE=${{ matrix.build }} -D CMAKE_CXX_FLAGS='-Werror' .
+          cmake -D CMAKE_BUILD_TYPE=${{ matrix.build }} -D CMAKE_CXX_STANDARD={{ matrix.standard }} \
+            -D CMAKE_CXX_FLAGS='-Werror' .
           make VERBOSE=ON -j 4 tests
